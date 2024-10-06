@@ -1,0 +1,30 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+.container{
+    background-color: #e5e5fd;
+    min-height: 100vh;
+    border: 10px solid #1D1E4C;
+}
+.content{
+    max-width: 900px;
+    margin: 0 auto;
+}
+.image_container{
+    border-radius: 50%;
+    overflow: hidden;
+}
+.image_container{
+    width: 300px;
+    height: 320px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.topsection{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 100px;
+
+}

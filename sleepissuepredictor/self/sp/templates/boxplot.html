@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Performance Prediction - Boxplot</title>
+  <style>
+    /* ... your CSS styles ... */
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <h1>Performance Prediction Boxplot</h1>
+      <div class="buttons">
+        <a href="/" class="button">Back to Predict</a>
+      </div>
+      <div class="graph-container">
+        <div class="graph" id="boxplot-area"></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const boxplotArea = document.getElementById('boxplot-area');
+
+    // Fetch the boxplot data from the server
+    fetch('/boxplot')
+      .then(response => response.json())
+      .then(data => {
+        boxplotArea.innerHTML = `<img src="data:image/png;base64,${data.boxplot}" alt="Boxplot">`;
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        boxplotArea.textContent = 'Error loading boxplot.';
+      });
+  </script>
+</body>
+</html>
