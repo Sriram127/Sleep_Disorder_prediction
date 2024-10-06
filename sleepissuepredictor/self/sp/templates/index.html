@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Performance Prediction</title>
+  <style>
+    /* General Body Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #f8f9fa; /* Light gray background */
+    }
+
+    /* Main Container Styling */
+    .container {
+      width: 90%;
+      max-width: 800px;
+      background-color: #ffffff; /* White background */
+      padding: 30px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+
+    /* Card Styling */
+    .card {
+      text-align: center;
+    }
+
+    /* Header Styling */
+    h1 {
+      margin-bottom: 20px;
+      font-size: 2.5rem;
+      color: #333;
+    }
+
+    /* Form Styling */
+    form {
+      margin-top: 20px;
+    }
+
+    /* Label Styling */
+    label {
+      display: block;
+      text-align: left;
+      margin: 10px 0 5px;
+      color: #333;
+      font-weight: bold;
+    }
+
+    /* Input and Select Styling */
+    input[type="number"],
+    select {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    /* Submit Button Styling */
+    input[type="submit"] {
+      width: 100%;
+      background-color: #FF0018; /* Red */
+      color: #fff;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 4px;
+      font-size: 1.2rem;
+      transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #FFA52C; /* Orange on hover */
+    }
+
+    /* Button Container Styling */
+    .buttons {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    /* Generic Button Styling */
+    .button {
+      padding: 12px 24px;
+      background-color: #FFD700; /* Yellow */
+      color: #333;
+      text-decoration: none;
+      border-radius: 4px;
+      margin: 0 10px;
+      font-size: 1.1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #7FFF00; /* Green on hover */
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <h1>Student Performance Prediction</h1>
+      <form method="POST" action="/">
+        <label for="hours_studied">Hours Studied (max 9):</label>
+        <input type="number" id="hours_studied" name="hours_studied" min="0" max="9" required><br>
+
+        <label for="previous_scores">Previous Scores (max 100):</label>
+        <input type="number" id="previous_scores" name="previous_scores" min="0" max="100" required><br>
+
+        <label for="extracurricular_activities">Extracurricular Activities:</label>
+        <select id="extracurricular_activities" name="extracurricular_activities" required>
+          <option value="No">No</option>
+          <option value="Yes">Yes</option>
+        </select><br>
+
+        <label for="sleep_hours">Sleep Hours (max 9):</label>
+        <input type="number" id="sleep_hours" name="sleep_hours" min="0" max="9" required><br>
+
+        <label for="sample_question_papers_practiced">Sample Question Papers Practiced (max 9):</label>
+        <input type="number" id="sample_question_papers_practiced" name="sample_question_papers_practiced" min="0" max="9" required><br>
+
+        <label for="ML Mid term exam">ML Mid Term Exam (max 30):</label>
+        <input type="number" id="ML Mid term exam" name="ML Mid term exam" min="0" max="30" required><br>
+
+        <label for="ES Mid term exam">ES Mid Term Exam (max 30):</label>
+        <input type="number" id="ES Mid term exam" name="ES Mid term exam" min="0" max="30" required><br>
+
+        <label for="CC Mid term exam">CC Mid Term Exam (max 30):</label>
+        <input type="number" id="CC Mid term exam" name="CC Mid term exam" min="0" max="30" required><br>
+
+        <label for="CN Mid term exam">CN Mid Term Exam (max 30):</label>
+        <input type="number" id="CN Mid term exam" name="CN Mid term exam" min="0" max="30" required><br>
+
+        <label for="BDA Mid term exam">BDA Mid Term Exam (max 30):</label>
+        <input type="number" id="BDA Mid term exam" name="BDA Mid term exam" min="0" max="30" required><br>
+
+        <input type="submit" value="Predict">
+      </form>
+
+      <div id="prediction"></div>
+
+      <div class="buttons">
+        <a href="/graphs" class="button">View Graphs</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
