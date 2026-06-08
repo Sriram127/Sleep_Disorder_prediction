@@ -2,14 +2,17 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 import time
+from pathlib import Path
 from modeling import load_model 
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 
+BASE_DIR = Path(__file__).resolve().parent
+
 # Loading issue model with scaling
-issue_model = load_model(r"NoSystolic_ScaledModelSVC.pkl")
+issue_model = load_model(BASE_DIR / "NoSystolic_ScaledModelSVC.pkl")
 # Loading type of issue model with scaling
-issue_type_model = load_model(r"SleepIssueType_ModelScaled.pkl")
+issue_type_model = load_model(BASE_DIR / "SleepIssueType_ModelScaled.pkl")
 
 def proba_predict(model, input_data):
     """
@@ -23,7 +26,7 @@ def plot_filled_gender(male, percentage):
     fig, ax = plt.subplots(figsize=(1,2))
     fig.patch.set_alpha(0)
 
-    img_path = (r"male_silhouette.png") if (male==1) else (r"female_silhouette.png")
+    img_path = BASE_DIR / ("male_silhouette.png" if male == 1 else "female_silhouette.png")
 
     # Load image
     img = mpimg.imread(img_path)
@@ -56,7 +59,7 @@ def sleep_issue_image(issue, TITLE):
     fig, ax = plt.subplots(figsize=(2,2))
     fig.patch.set_alpha(0)
 
-    img_path = (r"sleep_apnea.jpeg") if (issue=='Sleep Apnea') else (r"insomnia.jpeg")
+    img_path = BASE_DIR / ("sleep_apnea.jpeg" if issue == "Sleep Apnea" else "insomnia.jpeg")
 
     # Load image
     img = mpimg.imread(img_path)

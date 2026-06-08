@@ -1,9 +1,14 @@
 import pandas as pd
 import numpy as np
 import joblib
+from pathlib import Path
 from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import RobustScaler, FunctionTransformer
+
+
+BASE_DIR = Path(__file__).resolve().parent
+DATA_PATH = BASE_DIR / "Sleep_health_and_lifestyle_dataset.csv"
 
 def cleaned_fr(avoid_systolic = False, insomnia_cat = 1) -> pd.DataFrame:
     """
@@ -14,7 +19,7 @@ def cleaned_fr(avoid_systolic = False, insomnia_cat = 1) -> pd.DataFrame:
 
     # Reading and fixing column names
     df = (
-        pd.read_csv(r"Sleep_health_and_lifestyle_dataset.csv", index_col=[0])
+        pd.read_csv(DATA_PATH, index_col=[0])
             .rename( columns=str.lower )
             .rename( columns=lambda x: x.replace(' ', '_') )                                 
             )
@@ -78,7 +83,7 @@ def train_and_save_model(MODEL_PATH, model_selected, disorder_pipeline = False):
             
 
     # Pipeline for training
-    _model_with_fipeline = Pipeline([
+    _model_with_pipeline = Pipeline([
                                 ('preprocessor', preprocessor),
                                 ('model_selected', model_selected)
                             ])
@@ -89,5 +94,5 @@ def train_and_save_model(MODEL_PATH, model_selected, disorder_pipeline = False):
     # 3. Serialize the Model
     joblib.dump(_model_with_pipeline, MODEL_PATH + '.pkl')
 
-def load_model(MODEL_PATH):
-    return joblib.load(MODEL_PATH)
+def load_model(model_path):
+    return joblib.load(model_path)
