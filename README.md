@@ -4,16 +4,6 @@ A Streamlit web app that estimates the probability of a sleep issue and predicts
 
 > **Disclaimer:** This project is for education and portfolio demonstration only. It is not medical advice and should not be used for diagnosis.
 
-## Live Demo
-
-**[Open on Streamlit Community Cloud](https://sriram127-sleep-disorder-prediction.streamlit.app/)**
-
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://sriram127-sleep-disorder-prediction.streamlit.app/)
-
-## Screenshot
-
-> _Screenshot will appear here once the app is deployed to Streamlit Community Cloud._
-
 ## Features
 
 - Streamlit prediction UI with dark theme
@@ -75,14 +65,6 @@ cd sleepissuepredictor
 docker build -t sleep-disorder-predictor .
 docker run -p 8501:8501 sleep-disorder-predictor
 ```
-
-## Deploy to Streamlit Community Cloud
-
-1. Go to [share.streamlit.io](https://share.streamlit.io) and sign in with GitHub.
-2. Click **New app**.
-3. Select repository `Sriram127/Sleep_Disorder_prediction`.
-4. Set **Main file path** to `sleepissuepredictor/app.py`.
-5. Click **Deploy**.
 
 ## Dataset
 
